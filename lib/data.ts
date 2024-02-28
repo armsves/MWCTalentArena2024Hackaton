@@ -39,7 +39,7 @@ export function getConnectionSession(cookies) {
 
 export async function getPatient(email) {
 	const res = await fetch(
-		`https://mwct-alent-arena2024-hack-git-48bea8-armandos-projects-2e09911a.vercel.app/api/get-patient?patientEmail=${email}&doctorId=1`
+		`https://mwct-alent-arena2024-hackaton.vercel.app/api/get-patient?patientEmail=${email}&doctorId=1`
 	);
 
 	const data = await res.json();
