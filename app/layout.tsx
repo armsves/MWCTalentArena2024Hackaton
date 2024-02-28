@@ -1,3 +1,4 @@
+import { CookiesProvider } from 'next-client-cookies/server';
 import './globals.css';
 import { Inter } from 'next/font/google';
 
@@ -20,9 +21,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className={inter.variable}>
-				<main>{children}</main>
-			</body>
+			<CookiesProvider>
+				<body suppressHydrationWarning={true} className={inter.variable}>
+					<main>{children}</main>
+				</body>
+			</CookiesProvider>
 		</html>
 	);
 }
