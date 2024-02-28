@@ -11,7 +11,7 @@ export async function GET(request: Request) {
 
     try {
         if (!email || !doctorId) throw new Error('Patient email and doctor ID are required');
-        data = await sql`SELECT * FROM patients WHERE email = ${email}`;
+        data = await sql`SELECT name, email, image, phone_number, status FROM patients WHERE email = ${email}`;
         patients = data.rows;
         if (patients.length > 0) {
             dataPhysician = await sql`SELECT * FROM physicians WHERE id = ${doctorId}`;
@@ -30,7 +30,7 @@ export async function GET(request: Request) {
                 area: {
                     areaType: 'Circle',
                     center: { latitude: medicalCenter[0].latitude, longitude: medicalCenter[0].longitude },
-                    radius: 100
+                    radius: 1000
                 },
                 maxAge: 60
             }
