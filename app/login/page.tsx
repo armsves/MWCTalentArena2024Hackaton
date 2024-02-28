@@ -80,6 +80,7 @@ export default function Login() {
 					className='login-form'
 				>
 					<input
+						autoComplete='off'
 						type='email'
 						name='email'
 						id='email'

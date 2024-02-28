@@ -15,6 +15,7 @@ export default function ReqPatientConnection() {
 		<form onSubmit={handleForm} className='req-access-connection'>
 			<h2>Enter patient&apos;s email</h2>
 			<input
+				autoComplete='off'
 				type='email'
 				name='email'
 				id='email'

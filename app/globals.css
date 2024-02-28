@@ -34,11 +34,17 @@ main {
 h1 {
 	font-size: 24px;
 	font-weight: 600;
+	color: white;
 }
 
 .req-access-connection input {
 	width: 100%;
 	padding: 8px 16px;
+}
+
+.req-access-connection h2 {
+	color: white;
+	font-weight: 600;
 }
 
 .btn-req-access {
@@ -60,4 +66,17 @@ form > * {
 .icon {
 	width: 24px;
 	height: 24px;
+}
+
+.logo {
+	color: white;
+	font-weight: 600;
+}
+
+.connection-loading {
+	color: white;
+}
+
+.login {
+	margin-bottom: 64px;
 }

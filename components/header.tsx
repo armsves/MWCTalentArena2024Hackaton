@@ -20,7 +20,7 @@ export default function Header() {
 
 	return (
 		<header>
-			<div className='logo'>[LOGO]</div>
+			<div className='logo'>TravelHealthPass</div>
 
 			{session && (
 				<button onClick={handleLogout} className='btn btn-logout'>
