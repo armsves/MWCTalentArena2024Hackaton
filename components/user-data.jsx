@@ -4,14 +4,21 @@ import { getPatientFromSession } from '@/lib/data';
 import { useCookies } from 'next-client-cookies';
 import { useState } from 'react';
 
+import Pencil from '@/icons/Pencil';
+import Close from '@/icons/Close';
+import Trash from '@/icons/Trash';
+
 export default function UserData() {
 	// const user = getPatient();
+	const [updating, setUpdating] = useState(false);
 	const [history, setHistory] = useState([
 		{
+			id: 1,
 			history_event:
 				'Medical History: No significant medical history. Generally healthy.'
 		},
 		{
+			id: 2,
 			history_event:
 				'Current Complaint: Experiencing occasional headaches and fatigue.'
 		}
@@ -26,7 +33,30 @@ export default function UserData() {
 		address: 'Carrer del Joncs 1. Barcelona'
 	};
 
-	console.log({ user });
+	const handleUpdate = (e, id) => {
+		const historyToUpdate = history.findIndex((h) => h.id === id);
+
+		const history_event = e.target.value;
+
+		let newHistory = [...history];
+
+		newHistory[historyToUpdate]['history_event'] = history_event;
+
+		setHistory(newHistory);
+	};
+
+	const handleAdd = () => {
+		const lastId = history[history.length - 1].id;
+		const newHistoryRecord = {
+			id: lastId + 1,
+			history_event: ''
+		};
+		setHistory([...history, newHistoryRecord]);
+	};
+
+	const handleRemove = (id) => {
+		setHistory((h) => h.filter((item) => item.id !== id));
+	};
 
 	return (
 		<div className='user-data'>
@@ -56,19 +86,48 @@ export default function UserData() {
 			</div>
 			<div className='field data-field'>
 				<h3 className='field-title'>
-					History <button className='history-edit'>e</button>
+					History{' '}
+					<button
+						onClick={() => setUpdating(!updating)}
+						className='history-edit'
+					>
+						{updating ? <Close /> : <Pencil />}
+					</button>
 				</h3>
 				{history.map((h) => {
 					const hParts = h.history_event.split(':');
 					const historyTitle = hParts[0];
 					const historyText = hParts[1];
-					return (
-						<p key={h[0]}>
-							<span className='history-title'>{historyTitle}</span>:
-							<span className='history-text'>{historyText}</span>
-						</p>
+
+					return updating ? (
+						<div className='history-input-wrapper'>
+							<input
+								key={h.id}
+								type='text'
+								onInput={(e) => handleUpdate(e, h.id)}
+								value={h.history_event}
+							/>
+							<button
+								onClick={() => handleRemove(h.id)}
+								className='btn btn--remove'
+							>
+								<Trash />
+							</button>
+						</div>
+					) : (
+						h.history_event.length > 0 && (
+							<p key={h.id}>
+								<span className='history-title'>{historyTitle}</span>:
+								<span className='history-text'>{historyText}</span>
+							</p>
+						)
 					);
 				})}
+				{updating && (
+					<button onClick={handleAdd} className='btn btn--add'>
+						Add record
+					</button>
+				)}
 			</div>
 		</div>
 	);
