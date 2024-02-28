@@ -88,3 +88,16 @@ form > * {
 	transform: translateX(-50%);
 	white-space: nowrap;
 }
+
+table th,
+table td {
+	padding: 8px 16px;
+	border: 1px solid #ccc;
+}
+
+table {
+	padding: 0 !important;
+	display: block !important;
+	overflow: auto;
+	width: 100%;
+}
