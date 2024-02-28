@@ -37,7 +37,7 @@ export default async function Geofencing() {
 			<Link href='/' className='btn btn--back'>
 				Go back to homepage
 			</Link>
-			<table className='bg-white p-12 shadow-xl ring-1 ring-gray-900/5 rounded-lg max-w-screen-xl mx-auto mt-8 w-full whitespace-nowrap overflow-auto max-w-full'>
+			<table className='bg-white/50 shadow-xl ring-1 ring-gray-900/5  backdrop-blur-lg p-12 shadow-xl ring-1 ring-gray-900/5 rounded-lg max-w-screen-xl mx-auto mt-8 w-full whitespace-nowrap overflow-auto max-w-full'>
 				<tr>
 					<th className='text-xl font-semibold'>Name</th>
 					<th className='text-xl font-semibold'>Phone Number</th>
