@@ -3,8 +3,9 @@ import { NextResponse } from 'next/server';
  
 export async function POST(request: Request) {
   const { searchParams } = new URL(request.url);
+  console.log(searchParams)
   const notification = searchParams.get('Notification');
-  
+
 
   try {
     //if (!petName || !ownerName) throw new Error('Pet and owner names required');
