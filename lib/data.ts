@@ -44,8 +44,6 @@ export async function getPatient(email) {
 
 	const data = await res.json();
 
-	console.log(data.patients[0]);
-
 	return data;
 }
 

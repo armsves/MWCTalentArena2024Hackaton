@@ -3,7 +3,6 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
-	createConnection,
 	createConnectionSession,
 	getPatient,
 	savePatientInSession
@@ -25,48 +24,22 @@ export default function Connection() {
 
 	useEffect(() => {
 		async function handleConnection() {
-			// search for patient by email
 			try {
+				// search for patient by email
 				const fetchedPatient = await getPatient(patientEmail);
 				setPatient(fetchedPatient.patients[0]);
+				// create network connection
 				setConnection({ ...connection, status: 'ok' });
 				createConnectionSession(cookies);
+				// save patient locally for future use
 				savePatientInSession(cookies, fetchedPatient.patients[0]);
 			} catch (error) {
 				console.error({ error });
-				// alert('We could not find patient, redirecting to homepage.');
 			}
 
 			setTimeout(() => {
 				router.push('/');
 			}, 1000);
-			// if (fetchedPatient) {
-			// 	setPatient(fetchedPatient);
-
-			// 	console.log(fetchedPatient);
-			// 	console.log(patient);
-
-			// 	setTimeout(() => {
-			// 		const createdConnection = createConnection(fetchedPatient.phone);
-
-			// 		createConnection.loading = false;
-
-			// 		if (createdConnection) {
-			// 			setConnection(createdConnection);
-			// 			createConnectionSession(cookies);
-			// 			setTimeout(() => {
-			// 				router.push('/');
-			// 			}, 1000);
-			// 		}
-			// 	}, 2000);
-			// }
-
-			// handle connection
-			// if connection is successful
-			// update status accordingly + loading to false
-			// else
-			// same
-			// redirect to homepage
 		}
 
 		handleConnection();
