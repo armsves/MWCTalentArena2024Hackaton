@@ -2,12 +2,29 @@ import '@/css/user-data.css';
 
 import { getPatientFromSession } from '@/lib/data';
 import { useCookies } from 'next-client-cookies';
+import { useState } from 'react';
 
 export default function UserData() {
 	// const user = getPatient();
+	const [history, setHistory] = useState([
+		{
+			history_event:
+				'Medical History: No significant medical history. Generally healthy.'
+		},
+		{
+			history_event:
+				'Current Complaint: Experiencing occasional headaches and fatigue.'
+		}
+	]);
+
 	const cookies = useCookies();
 
 	const user = getPatientFromSession(cookies);
+
+	const center = {
+		name: 'Medical Center 1',
+		address: 'Carrer del Joncs 1. Barcelona'
+	};
 
 	console.log({ user });
 
@@ -34,11 +51,24 @@ export default function UserData() {
 			</div>
 			<div className='field data-field'>
 				<h3 className='field-title'>Center</h3>
-				<p>{user.center}</p>
+				<p>{center.name}</p>
+				<p>{center.address}</p>
 			</div>
 			<div className='field data-field'>
-				<h3 className='field-title'>History</h3>
-				<p>{user.history}</p>
+				<h3 className='field-title'>
+					History <button className='history-edit'>e</button>
+				</h3>
+				{history.map((h) => {
+					const hParts = h.history_event.split(':');
+					const historyTitle = hParts[0];
+					const historyText = hParts[1];
+					return (
+						<p key={h[0]}>
+							<span className='history-title'>{historyTitle}</span>:
+							<span className='history-text'>{historyText}</span>
+						</p>
+					);
+				})}
 			</div>
 		</div>
 	);

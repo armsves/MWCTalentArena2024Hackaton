@@ -27,3 +27,31 @@
 .user-data .data-field:not(:last-child) {
 	border-bottom: 1px solid #ccc;
 }
+
+.field-title {
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.field-title button {
+	padding: 4px;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid;
+	border-radius: 100%;
+	cursor: pointer;
+	background-color: #eee;
+}
+
+.history-title {
+	font-weight: 500;
+}
+
+.history-text {
+	color: #4b4b4b;
+}
