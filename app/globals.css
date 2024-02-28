@@ -80,3 +80,11 @@ form > * {
 .login {
 	margin-bottom: 64px;
 }
+
+.btn--geofencing {
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+}

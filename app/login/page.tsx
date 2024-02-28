@@ -3,6 +3,7 @@
 import '@/css/login.css';
 import { login } from '@/lib/data';
 import { useCookies } from 'next-client-cookies';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { useState } from 'react';
@@ -58,6 +59,9 @@ export default function Login() {
 
 	return (
 		<>
+			<Link href='/geofencing' className='btn btn--geofencing'>
+				Geofencing live showcase
+			</Link>
 			<h1>Log In as a</h1>
 			<div className='login'>
 				<div className='login-tabs'>
