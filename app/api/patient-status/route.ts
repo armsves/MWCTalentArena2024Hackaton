@@ -11,9 +11,9 @@ export async function POST(request: Request) {
   
   try {
     //if (!petName || !ownerName) throw new Error('Pet and owner names required');
-    await sql`INSERT INTO history (id_patient, history_event) VALUES (0, ${notification});`;
-    await sql`INSERT INTO history (id_patient, history_event) VALUES (1, ${notification2});`;
-    await sql`INSERT INTO history (id_patient, history_event) VALUES (2, ${notification3});`;
+    await sql`INSERT INTO history (id_patient, history_event) VALUES (1, ${notification});`;
+    await sql`INSERT INTO history (id_patient, history_event) VALUES (2, ${notification2});`;
+    await sql`INSERT INTO history (id_patient, history_event) VALUES (3, ${notification3});`;
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
