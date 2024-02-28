@@ -5,10 +5,10 @@ export async function POST(request: Request) {
   const { searchParams } = new URL(request.url);
   console.log(searchParams)
 
-  const notification = searchParams.get('eventType');
-  const notification2 = searchParams.get('eventType');
-  const notification3 = searchParams.get('deviceStatus');
-  const notification4 = searchParams.get('');
+  const notification = searchParams.get('connectivity');
+  const notification2 = searchParams.get('notifications');
+  const notification3 = searchParams.get('notification');
+  const notification4 = searchParams.get('device-status');
 
   try {
     //if (!petName || !ownerName) throw new Error('Pet and owner names required');
