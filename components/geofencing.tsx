@@ -1,4 +1,5 @@
 import { sql } from '@vercel/postgres';
+import Link from 'next/link';
 
 let patients: any = [];
 let medicalCenters: any = [];
@@ -33,7 +34,10 @@ export default async function Geofencing() {
 
 	return (
 		<>
-			<div className='bg-white/30 p-12 shadow-xl ring-1 ring-gray-900/5 rounded-lg backdrop-blur-lg max-w-screen-xl mx-auto w-full'>
+			<Link href='/' className='btn btn--back'>
+				Go back to homepage
+			</Link>
+			<div className='bg-white/30 p-12 shadow-xl ring-1 ring-gray-900/5 rounded-lg backdrop-blur-lg max-w-screen-xl mx-auto mt-8 w-full'>
 				<div className='flex justify-between items-center mb-4'>
 					<div className='space-y-1'>
 						<h2 className='text-xl font-semibold'>Name</h2>
