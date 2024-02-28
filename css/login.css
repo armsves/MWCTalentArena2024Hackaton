@@ -1,0 +1,62 @@
+main:has(.login) {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.login {
+	max-width: 350px;
+	background-color: white;
+	box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+}
+
+.login-tabs {
+	display: flex;
+}
+
+.login-tabs button {
+	flex: 1;
+	padding: 16px;
+	text-transform: capitalize;
+	border-bottom: 1px solid #ccc;
+	cursor: pointer;
+}
+
+.login-tabs button[data-selected='false'] {
+	background-color: #eee;
+	color: #2a2a2a;
+}
+
+.login-tabs button:first-child {
+	border-right: 1px solid #ccc;
+}
+
+.login-tabs button[data-selected='true'] {
+	font-weight: 600;
+}
+
+.login-form {
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.login-form > * {
+	width: 100%;
+	padding: 8px 16px;
+}
+
+.login-form input {
+	border-bottom: 1px solid black;
+}
+
+.login-form .btn-login[disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

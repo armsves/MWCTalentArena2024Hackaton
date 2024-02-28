@@ -2,18 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--padding: 16px;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	min-height: 100vh;
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	background-image: url('../public/bg.jpg');
+	background-size: cover;
+	background-position: bottom;
+}
+
+main {
+	flex: 1;
+}
+
+header,
+main {
+	padding: var(--padding);
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: 600;
+	color: white;
+}
+
+.req-access-connection input {
+	width: 100%;
+	padding: 8px 16px;
+}
+
+.req-access-connection h2 {
+	color: white;
+	font-weight: 600;
+}
+
+.btn-req-access {
+	margin-top: 8px;
+}
+
+.btn {
+	background-color: #2a2a2a;
+	color: white;
+	font-weight: 600;
+	padding: 8px 16px;
+}
+
+form > * {
+	width: 100%;
+	padding: 8px 16px;
+}
+
+.icon {
+	width: 24px;
+	height: 24px;
+}
+
+.logo {
+	color: white;
+	font-weight: 600;
+}
+
+.connection-loading {
+	color: white;
+}
+
+.login {
+	margin-bottom: 64px;
+}
+
+.btn--geofencing {
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
 }

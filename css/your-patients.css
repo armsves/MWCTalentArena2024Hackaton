@@ -1,0 +1,34 @@
+.your-patients {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	border-radius: 8px;
+	margin-top: 12px;
+}
+
+.your-patients-header {
+	border-bottom: 1px solid #ccc;
+	padding: 16px;
+}
+
+.your-patients-data {
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+}
+
+.your-patient {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding-block: 12px;
+}
+
+.your-patient:not(:last-child) {
+	border-bottom: 1px solid #ccc;
+}
+
+.your-patient-image img {
+	width: 96px;
+	border-radius: 100%;
+}

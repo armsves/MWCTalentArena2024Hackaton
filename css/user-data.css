@@ -1,0 +1,96 @@
+.user-data {
+	padding: 8px;
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.user-data-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.user-data h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.user-data-header img {
+	width: 96px;
+	border-top-right-radius: 6px;
+}
+
+.user-data .data-field {
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
+}
+
+.user-data .data-field:not(:last-child) {
+	border-bottom: 1px solid #ccc;
+}
+
+.field-title {
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.field-title button {
+	padding: 4px;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.history-title {
+	font-weight: 500;
+}
+
+.history-text {
+	color: #4b4b4b;
+}
+
+.data-field input {
+	border: 1px dashed #2a2a2a;
+	border-radius: 4px;
+}
+
+.data-field p,
+.data-field input {
+	padding: 4px;
+	margin-block: 2px;
+}
+
+.btn--add {
+	margin-top: 12px;
+}
+
+.history-input-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.history-input-wrapper input {
+	width: 100%;
+}
+
+.history-input-wrapper .btn--remove {
+	position: absolute;
+	right: 4px;
+	top: 50%;
+	transform: translateY(-50%);
+	aspect-ratio: 1;
+	padding: 0;
+	background: none;
+}
+
+.history-input-wrapper .btn--remove .icon {
+	fill: rgb(209, 16, 16);
+	width: 20px;
+	height: 20px;
+}
