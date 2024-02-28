@@ -1,3 +1,5 @@
+// Handling sessions with localStorage for testing purposes
+
 export function login(cookies, role, email, password) {
 	const sessionObject = {
 		role,
@@ -20,4 +22,50 @@ export function getSession(cookies) {
 
 export function logout(cookies) {
 	cookies.remove('session');
+	cookies.remove('connection');
+	cookies.remove('patient');
+}
+
+// Add connection to session (localStorage for testing purposes)
+export function createConnectionSession(cookies) {
+	cookies.set('connection', 'true');
+}
+
+// Get connection from session
+export function getConnectionSession(cookies) {
+	const connectionSession = cookies.get('connection');
+	return connectionSession;
+}
+
+export async function getPatient(email) {
+	const res = await fetch(
+		`http://localhost:3000/api/get-patient?patientEmail=${email}&doctorId=1`
+	);
+
+	const data = await res.json();
+
+	console.log(data.patients[0]);
+
+	return data;
+}
+
+// Save current patient
+
+export function savePatientInSession(cookies, patient) {
+	cookies.set('patient', JSON.stringify(patient)); // handle login
+}
+
+export function getPatientFromSession(cookies) {
+	const serializedPatient = cookies.get('patient');
+
+	if (serializedPatient) {
+		const patient = JSON.parse(serializedPatient);
+		return patient;
+	}
+
+	return null; // or handle the case where there is no stored session
+}
+
+export function removePatientFromSession(cookies) {
+	cookies.remove('patient');
 }

@@ -5,6 +5,9 @@ import { useCookies } from 'next-client-cookies';
 import { getSession } from '@/lib/data';
 import { useRouter } from 'next/navigation';
 
+import DoctorView from '@/components/doctor-view';
+import PatientView from '@/components/patient-view';
+
 export default function Home() {
 	const router = useRouter();
 	const cookies = useCookies();
@@ -17,7 +20,7 @@ export default function Home() {
 	}
 
 	return (
-		<h1>test</h1>
+		<>{session.role === 'doctor' ? <DoctorView /> : <PatientView />}</>
 		// <main className='relative flex min-h-screen flex-col items-center justify-center'>
 		// 	<h1 className='pt-4 pb-8 bg-gradient-to-br from-black via-[#171717] to-[#575757] bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl'>
 		// 		Worldwide Patient Records

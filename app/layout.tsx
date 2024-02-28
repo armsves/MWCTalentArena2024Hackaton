@@ -1,6 +1,7 @@
 import { CookiesProvider } from 'next-client-cookies/server';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Header from '@/components/header';
 
 export const metadata = {
 	metadataBase: new URL('https://postgres-starter.vercel.app'),
@@ -23,6 +24,7 @@ export default function RootLayout({
 		<html lang='en'>
 			<CookiesProvider>
 				<body suppressHydrationWarning={true} className={inter.variable}>
+					<Header />
 					<main>{children}</main>
 				</body>
 			</CookiesProvider>
