@@ -7,7 +7,7 @@ information quickly.
 ## Tech stack
 
 This project was made using NextJS, some tailwind for the geofencing view, and
-postgresql for the db.
+postgresql for the database.
 
 ## How to use locally
 
@@ -21,4 +21,5 @@ npm run dev
 
 ## PowerPoint presentation
 
-You can download the file "powerpoint.pptx" to view the presentation
+You can download the file "powerpoint.pptx" to view the presentation.
+There are multiple views. Firstly, we'll provide you an overview about our solution.
